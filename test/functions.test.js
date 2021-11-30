@@ -1,16 +1,24 @@
 // IMPORT MODULES under test here:
-import { 
-    myFunction,
-} from '../functions.js';
+import { addExclamationPoints } from '../functions.js';
 
 const { test, skip } = QUnit;
 
-test('this test should pass', (expect) => {
-    const expected = true;
+test('addExclamationPoint should return a string with 3 exclamation points added to the end', (expect) => {
+    const expected1 = 'puppy!!!';
 
-    const actual = myFunction();
+    const actual1 = addExclamationPoints ('puppy');
 
-    expect.equal(actual, expected);
+    const expected2 = 'guppy!!!';
+
+    const actual2 = addExclamationPoints ('guppy');
+
+    const expected3 = 'dopey!!!';
+
+    const actual3 = addExclamationPoints ('dopey');
+
+    expect.equal(actual1, expected1);
+    expect.equal(actual2, expected2);
+    expect.equal(actual3, expected3);
 });
 
 
