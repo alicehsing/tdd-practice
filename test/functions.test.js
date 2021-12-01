@@ -8,7 +8,8 @@ import {
     returnAsAString,
     makeLuckyGreeting,
     getSecondItem,
-    getLastItem } from '../functions.js';
+    getLastItem,
+    getRandomNumber } from '../functions.js';
 
 const { test, skip } = QUnit;
 
@@ -16,7 +17,7 @@ test('addExclamationPoint should return a string with 3 exclamation points added
     const expected1 = 'puppy!!!';
     const actual1 = addExclamationPoints ('puppy');
 
-    expect.equal(actual1, expected1, 'puppy!!!' );
+    expect.equal(actual1, expected1, 'puppy!!!');
 
     const expected2 = 'guppy!!!';
     const actual2 = addExclamationPoints ('guppy');
@@ -125,12 +126,12 @@ test('makeLuckyGreeting should take in two numbers and return a greeting announc
     const expected2 = 'Hello! Your lucky number for the day is 198.';
     const actual2 = makeLuckyGreeting (8, 190);
 
-    expect.deepEqual(actual1, expected1, 'the return should be a greeting `Hello! Your lucky number for the day is 198.`');
+    expect.deepEqual(actual2, expected2, 'the return should be a greeting `Hello! Your lucky number for the day is 198.`');
 
     const expected3 = 'Hello! Your lucky number for the day is -59.';
     const actual3 = makeLuckyGreeting (-56, -3);
 
-    expect.deepEqual(actual1, expected1, 'the return should be a greeting `Hello! Your lucky number for the day is -59.`');
+    expect.deepEqual(actual3, expected3, 'the return should be a greeting `Hello! Your lucky number for the day is -59.`');
 });
 
 test('getSecondItem should take an array and return the second item in the array', (expect) => {
@@ -166,11 +167,26 @@ test('getLastItem should take an array and return the last item in the array', (
 
     expect.deepEqual(actual3, expected3, 'paul');
 });
-skip('this test should be skipped', (expect) => {
-    const expected = true;
 
-    const actual = true;
+test('getRandomNumber should make a random number between 0 and 5', (expect) => {
 
-    expect.equal(actual, expected);
+    const actual1 = getRandomNumber();
+    const expected1 = actual1 === 0 || actual1 === 1 || actual1 === 2 || actual1 === 3 || actual1 === 4 || actual1 === 5 ;
+
+    expect.equal(true, expected1, 'the return value should be a random number between 0 and 5');
+    
+    const actual2 = getRandomNumber();
+    const expected2 = 'number';
+
+    expect.equal(typeof actual2, expected2, 'the type of the return should be a number');
 });
+
+
+// skip('this test should be skipped', (expect) => {
+//     const expected = true;
+
+//     const actual = true;
+
+//     expect.equal(actual, expected);
+// });
 
